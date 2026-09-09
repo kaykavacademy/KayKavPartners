@@ -769,6 +769,10 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
    MOTION HELPERS
    ========================================================= */
 [data-fade]{opacity:0;transform:translateY(26px)}
+/* the reveal mask clips to the padding box, and Fraunces descenders sit ~.1em
+   below these tight line boxes - pad the mask, cancel it in layout, and
+   contain the last line's negative margin so nothing shifts */
+[data-split]{display:flow-root}
 .sp-line{display:block;overflow:hidden;padding-bottom:.18em;margin-bottom:-.18em}
 .sp-line>span{display:block;will-change:transform}
 .no-js [data-fade]{opacity:1;transform:none}
