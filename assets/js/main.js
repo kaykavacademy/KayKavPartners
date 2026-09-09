@@ -322,36 +322,6 @@
   }
 
   /* ======================================================
-     PRODUCT PREVIEW
-     ====================================================== */
-  function preview() {
-    var pane = $('#preview');
-    if (!pane || !FINE) return;
-    var rows = $$('.prow');
-    var xTo = gsap.quickTo(pane, 'x', { duration: .7, ease: 'power3' });
-    var yTo = gsap.quickTo(pane, 'y', { duration: .7, ease: 'power3' });
-    var visible = false;
-
-    window.addEventListener('pointermove', function (e) {
-      xTo(e.clientX + 28);
-      yTo(e.clientY - pane.offsetHeight / 2);
-    }, { passive: true });
-
-    rows.forEach(function (row) {
-      row.addEventListener('pointerenter', function () {
-        var id = row.dataset.preview;
-        $$('.pv', pane).forEach(function (p) { p.classList.toggle('is-on', p.dataset.pv === id); });
-        if (!visible) { visible = true; gsap.to(pane, { opacity: 1, scale: 1, duration: .45, ease: 'power3.out' }); }
-      });
-      row.addEventListener('pointerleave', function () {
-        visible = false;
-        gsap.to(pane, { opacity: 0, scale: .94, duration: .35, ease: 'power2.out' });
-      });
-    });
-    gsap.set(pane, { scale: .94, transformOrigin: '0% 50%' });
-  }
-
-  /* ======================================================
      PITCH PLAYER
      Docked over .hero__stage, then interpolated into the
      bottom corner as the hero scrolls away. One element,
@@ -670,7 +640,6 @@
     counters();
     heroScroll();
     buildTrack();
-    preview();
     cursor();
     tilt();
     nav();

@@ -521,32 +521,6 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .prow__go{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:.5s var(--ease)}
 .prow:hover .prow__go{border-color:var(--gold);background:var(--gold);color:var(--ink)}
 
-.preview{
-  position:fixed;top:0;left:0;width:clamp(260px,24vw,380px);z-index:600;pointer-events:none;
-  opacity:0;will-change:transform
-}
-.preview__inner{position:relative;width:100%;aspect-ratio:3/2;border-radius:10px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(8,23,43,.5)}
-.pv{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
-.pv.is-on{opacity:1}
-.pv .mock{width:100%;height:100%}
-
-/* =========================================================
-   CASE
-   ========================================================= */
-.case{background:var(--ink-2);padding-top:0}
-.case__panel{
-  display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(20px,2.4vw,40px);
-  background:linear-gradient(150deg,#0B1E38,#123059);border:1px solid rgba(244,232,215,.14);
-  border-radius:var(--r);padding:clamp(28px,3.6vw,60px);color:var(--cream)
-}
-.case__body h2{color:#fff;margin:1rem 0 1.4rem}
-.case__body p{color:rgba(244,232,215,.66);max-width:52ch;font-size:1rem;line-height:1.72}
-.case__body p+p{margin-top:1.1rem}
-.case__body b{color:#fff;font-weight:500}
-.case__quote{margin:0;background:var(--gold);color:var(--ink);border-radius:10px;padding:clamp(26px,3vw,42px);display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
-.case__quote blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.95rem);line-height:1.2;font-weight:500}
-.case__quote figcaption{font-size:.86rem;line-height:1.55;opacity:.72}
-
 /* =========================================================
    PROGRAMME
    ========================================================= */
@@ -792,8 +766,6 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   .bi{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .pstats{grid-template-columns:repeat(2,1fr)}
-  .case__panel{grid-template-columns:1fr}
-  .preview{display:none}
 }
 @media (max-width:860px){
   .nav__links,.nav__cta{display:none}
@@ -824,7 +796,6 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   .wk{width:78vw}
   .manifesto__text{max-width:none}
   .foot__bar{font-size:.68rem}
-  .case__quote{gap:1.2rem}
   .acc__c{padding-left:0}
 }
 @media (max-width:480px){
