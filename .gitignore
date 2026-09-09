@@ -12,3 +12,7 @@
 # node (only ever used for local QA, never for the site itself)
 node_modules/
 package-lock.json
+
+# video master — 1080p60, way past GitHub's 100MB file limit.
+# The web encode (assets/video/kaykav-deb-story.mp4) is what ships.
+assets/video/Kaykav DEB Story.mp4

@@ -29,7 +29,7 @@ assets/js/gl.js       the proposal-panel shader (raw WebGL, no library)
 assets/js/main.js     smooth scroll, reveals, scroll-driven set pieces
 assets/img/favicon.svg
 assets/img/pitch-poster.jpg          video poster frame
-assets/video/kaykav-pitch-placeholder.mp4
+assets/video/kaykav-deb-story.mp4          the pitch video (web encode)
 ```
 
 ## Dependencies
@@ -66,18 +66,28 @@ The transition runs over the first `72vh` of scrolling. While floating it keeps
 playing, and it offers pause, mute, seek, a button that returns you to the top,
 and a dismiss button. Dismissing hides it until you scroll back to the top.
 
-### Swapping in the real video
+### The pitch video
 
-Replace `assets/video/kaykav-pitch-placeholder.mp4` and
-`assets/img/pitch-poster.jpg`, then update the `<source>` and `poster`
-attributes on `#video` in `index.html`. Nothing else needs to change. The
-duration shown next to the play button is read from the file, so it corrects
-itself.
+`assets/video/kaykav-deb-story.mp4` is the real pitch, encoded for the web:
+720p30, H.264 high profile, AAC audio, `faststart` so it begins playing before
+the whole file arrives. The master (1080p60, 253MB) is kept in this folder as
+`Kaykav DEB Story.mp4` and is gitignored — it is far past GitHub's 100MB file
+limit and far too heavy to serve to a browser.
 
-The bundled clip is a generated placeholder with that word burned into the
-frame, so it cannot be mistaken for the real pitch and the marking disappears
-the moment you swap the file. It is 3.5MB; a real 3:50 pitch should be
-compressed for web, or hosted, before this goes live.
+To re-encode from the master after an edit:
+
+```
+ffmpeg -i "assets/video/Kaykav DEB Story.mp4" \
+  -c:v libx264 -preset slow -crf 24 -maxrate 1800k -bufsize 3600k \
+  -vf "scale=1280:720:flags=lanczos,fps=30" -pix_fmt yuv420p \
+  -c:a aac -b:a 96k -movflags +faststart -map_metadata -1 \
+  assets/video/kaykav-deb-story.mp4
+```
+
+To swap in a different file entirely, replace it along with
+`assets/img/pitch-poster.jpg` and update the `<source>` and `poster` attributes
+on `#video` in `index.html`. Nothing else needs to change — the duration shown
+next to the play button is read from the file, so it corrects itself.
 
 For a YouTube or Vimeo embed, swap the `<video>` for the provider's `<iframe>`.
 The docking mechanism only moves and resizes the container, so it works
