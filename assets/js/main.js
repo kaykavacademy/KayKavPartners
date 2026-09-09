@@ -158,7 +158,12 @@
   function reveals() {
     $$('[data-split]').forEach(function (el) {
       var lines = splitLines(el);
-      gsap.set(lines.map(function (l) { return l.firstChild; }), { yPercent: 108 });
+      /* .sp-line carries bottom padding so descenders clear the mask; park each
+         line relative to that padded height, not just its own text height */
+      lines.forEach(function (l) {
+        var inner = l.firstChild;
+        gsap.set(inner, { yPercent: (l.clientHeight / inner.offsetHeight) * 108 });
+      });
       ScrollTrigger.create({
         trigger: el, start: 'top 86%', once: true,
         onEnter: function () {
@@ -290,7 +295,9 @@
     vp.classList.remove('is-swipe');
     vp.onscroll = null;
 
-    var touchMode = !FINE || window.innerWidth < 860;
+    /* Pin only where a 100vh section can hold the rail; short viewports get the
+       same native swipe as touch rather than a scroll-jack that clips. */
+    var touchMode = !FINE || window.innerWidth < 860 || window.innerHeight < 820;
     if (touchMode) {
       /* native swipe on touch: better than hijacking scroll */
       vp.classList.add('is-swipe');
