@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>KayKav Academy · Domain Expert Builders — Built by the people who know</title>
+<meta name="description" content="Domain Expert Builders turns public servants, laboratory scientists, bankers and frontline professionals into people who ship the tools their institutions need. A partnership proposal for governments, foundations and development partners." />
+<meta name="theme-color" content="#08172B" />
+<meta property="og:title" content="Built by the people who know — KayKav Academy" />
+<meta property="og:description" content="Six-week live cohorts. Deployed tools, not certificates. The impact is not a report. It is a URL." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<script>
+/* safety: never let a failed script trap the page behind the loader */
+(function(){
+  var kill=function(){
+    document.body && document.body.classList.remove('is-loading');
+    var l=document.getElementById('loader'); if(l) l.style.display='none';
+    document.querySelectorAll('[data-fade]').forEach(function(e){e.style.opacity=1;e.style.transform='none';});
+    var pl=document.getElementById('player'); if(pl) pl.classList.add('is-static');
+  };
+  window.addEventListener('error',function(e){ if(e.target&&e.target.tagName==='SCRIPT') setTimeout(kill,60); },true);
+  setTimeout(function(){ if(document.body && document.body.classList.contains('is-loading')) kill(); },7000);
+})();
+</script>
+<noscript><style>.loader{display:none!important}body.is-loading{overflow:auto!important;height:auto!important}[data-fade]{opacity:1!important;transform:none!important}.player{position:static!important;width:auto!important;height:auto!important;transform:none!important;aspect-ratio:16/9}</style></noscript>
+</head>
+<body class="is-loading">
+
+<!-- ============ GRAIN + CURSOR ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+<!-- ============ PRELOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__mark">
+      <svg viewBox="0 0 120 120" class="loader__glyph">
+        <g fill="none" stroke="currentColor" stroke-width="1.25">
+          <rect class="lg" x="10" y="10" width="100" height="100" rx="4"/>
+          <path class="lg" d="M10 43h100M10 77h100M43 10v100M77 10v100"/>
+        </g>
+        <rect class="loader__fill" x="43" y="43" width="34" height="34" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="loader__meta">
+      <span class="loader__word">KayKav Academy</span>
+      <span class="loader__count"><i>0</i>%</span>
+    </div>
+    <div class="loader__bar"><span></span></div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <span class="nav__progress" aria-hidden="true"><i id="navBar"></i></span>
+  <a class="nav__brand" href="#top" data-cursor="Top">
+    <svg viewBox="0 0 32 32" class="nav__logo" aria-hidden="true">
+      <rect x="1" y="1" width="30" height="30" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="11" y="11" width="10" height="10" fill="currentColor"/>
+    </svg>
+    <span class="nav__name">KayKav<em>Academy</em></span>
+  </a>
+  <nav class="nav__links" aria-label="Sections">
+    <a href="#proof" data-nav>Proof</a>
+    <a href="#method" data-nav>Method</a>
+    <a href="#programme" data-nav>Programme</a>
+    <a href="#partner" data-nav>Partnership</a>
+  </nav>
+  <a class="btn btn--sm nav__cta" href="#proposal" data-cursor="Read"><span>The pilot</span><i class="btn__arrow"></i></a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__list">
+    <a href="#problem"><em>01</em>The problem</a>
+    <a href="#proof"><em>02</em>The proof</a>
+    <a href="#method"><em>03</em>The method</a>
+    <a href="#programme"><em>04</em>The programme</a>
+    <a href="#safeguards"><em>05</em>Safeguards</a>
+    <a href="#partner"><em>06</em>Partnership</a>
+    <a href="#proposal"><em>07</em>The proposal</a>
+  </div>
+  <div class="menu__foot">
+    <a href="mailto:hello@kaykav.academy">hello@kaykav.academy</a>
+    <span>Kaduna, Nigeria · remote delivery</span>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ PITCH PLAYER ============
+     Docked over .hero__stage at the top of the page; shrinks into the
+     corner on scroll and keeps playing. One element, never re-mounted. -->
+<div class="player" id="player" data-state="large">
+  <video class="player__video" id="video" playsinline preload="metadata"
+         poster="assets/img/pitch-poster.jpg" aria-label="KayKav Academy pitch video">
+    <source src="assets/video/kaykav-pitch-placeholder.mp4" type="video/mp4" />
+  </video>
+
+  <button class="player__hit" id="playToggle" aria-label="Play the pitch video">
+    <span class="player__big">
+      <svg viewBox="0 0 24 24" class="ic ic--play" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg viewBox="0 0 24 24" class="ic ic--pause" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+    </span>
+    <span class="player__cue">
+      <span class="player__cueLabel">Watch the pitch</span>
+      <span class="player__cueTime" id="cueTime">3:50</span>
+    </span>
+  </button>
+
+  <div class="player__chrome">
+    <button class="pbtn pbtn--sm" id="miniPlay" aria-label="Play or pause">
+      <svg viewBox="0 0 24 24" class="ic ic--play" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+      <svg viewBox="0 0 24 24" class="ic ic--pause" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+    </button>
+    <div class="player__scrub" id="scrub" role="slider" tabindex="0"
+         aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="player__buffer"></span>
+      <span class="player__played" id="played"></span>
+      <span class="player__knob" id="knob"></span>
+    </div>
+    <span class="player__time" id="time">0:00</span>
+    <button class="pbtn" id="muteBtn" aria-label="Mute">
+      <svg viewBox="0 0 24 24" class="ic ic--sound" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 24 24" class="ic ic--muted" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <button class="pbtn pbtn--only-mini" id="expandBtn" aria-label="Back to the top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l6 6M12 5L6 11M12 5v14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="pbtn pbtn--only-mini" id="closeBtn" aria-label="Dismiss the floating player">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+</div>
+
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+
+    <!-- reserves the space the player occupies while it is docked here -->
+    <div class="hero__stage" id="stage" aria-hidden="true"></div>
+
+    <div class="hero__text">
+      <p class="eyebrow eyebrow--light hero__kicker">
+        <span class="dot"></span><span class="only-lg">KayKav Academy · </span>Domain Expert Builders · Partner Pitch
+      </p>
+
+      <div class="hero__grid">
+        <h1 class="hero__title">Built by the people <span class="gold">who know</span></h1>
+
+        <div class="hero__aside">
+          <p class="hero__lede">
+            Turning public servants, laboratory scientists, bankers and frontline
+            professionals into the people who ship the tools their institutions need.
+          </p>
+          <ul class="chips">
+                <li class="chip">6-week live cohorts</li>
+            <li class="chip">Deployed tools, not certificates</li>
+            <li class="chip">Kaduna, Nigeria · remote delivery</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero__foot">
+        <div class="hero__sig">
+          Miracle Agada &amp; Osamudiamen (Mudia) Imasuen — co-founders.<br />
+          A proposal for governments, foundations and development partners.
+        </div>
+        <a class="scroller" href="#manifesto" data-cursor="Scroll">
+          <span class="scroller__line"><i></i></span>
+          <span class="scroller__txt">Scroll</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="manifesto">
+  <div class="wrap">
+    <p class="eyebrow"><span class="dot"></span>In one line</p>
+    <p class="manifesto__text" data-words>
+      Africa has trained millions in tech and digital literacy, yet struggles to find builders
+      where needed. A decade of certificate-based training has yielded credentials over capability.
+      KayKav Academy has solved for this and demonstrated, twice, that non-engineers can deploy
+      real software solutions in four weeks by thinking like product owners and directing AI
+      agents as the build layer.
+    </p>
+    <div class="manifesto__rule" data-line></div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section problem" id="problem">
+  <div class="wrap grid">
+    <div class="problem__sticky">
+      <p class="eyebrow"><span class="num">01</span>The problem</p>
+      <h2 class="h2" data-split>Africa has trained a million people and still cannot find a builder</h2>
+      <p class="body" data-fade>
+        Nigeria and the wider continent have funded technical training for the better part of a
+        decade. National programmes, donor-backed schemes and private academies mostly run on the
+        same model, and the outcome is predictable.
+      </p>
+      <p class="body body--accent" data-fade>
+        The gap is not intelligence or motivation. Traditional training teaches people to describe
+        software, not to make the decisions that produce it.
+      </p>
+    </div>
+
+    <div class="problem__stack">
+      <article class="stackcard" data-stack><span class="stackcard__i">01</span><div><h3>Video lessons</h3><p>Watched, not practised.</p></div></article>
+      <article class="stackcard" data-stack><span class="stackcard__i">02</span><div><h3>Quizzes</h3><p>Recall, not judgement.</p></div></article>
+      <article class="stackcard" data-stack><span class="stackcard__i">03</span><div><h3>Self-paced platform</h3><p>No cohort, no deadline, no ship date.</p></div></article>
+      <article class="stackcard" data-stack><span class="stackcard__i">04</span><div><h3>Certificate</h3><p>A credential employers have learned to discount.</p></div></article>
+      <blockquote class="pullquote" data-stack>
+        People finish. They have a credential. They still cannot build anything, and employers know it.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT CHANGED ============ -->
+<section class="section changed" id="changed">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow"><span class="num">02</span>What changed</p>
+      <h2 class="h2 h2--wide" data-split>The cost of building has collapsed. The cost of judgement has not.</h2>
+    </header>
+
+    <div class="diptych">
+      <article class="dip dip--a" data-tilt>
+        <p class="dip__tag">Collapsed</p>
+        <h3 class="dip__title">The first draft of a build</h3>
+        <p>AI coding agents now produce working software from a clear specification. The typing is no
+           longer the scarce part. Anyone who can direct the work can get a first version in days.</p>
+        <div class="dip__viz" aria-hidden="true">
+          <p class="viz__cap">Cost of a first version, over time</p>
+          <div class="dip__viz--a">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="dip dip--b" data-tilt>
+        <p class="dip__tag">Unchanged, and teachable</p>
+        <h3 class="dip__title">Judgement</h3>
+        <p>Framing the right problem. Knowing what shape the solution should take. Directing the
+           build. Evaluating whether it actually works. Keeping it alive afterwards.</p>
+        <p class="dip__note">Teachable in weeks — and it sits naturally with people who already carry domain expertise.</p>
+        <div class="dip__viz" aria-hidden="true">
+          <p class="viz__cap">Cost of judgement, same period</p>
+          <div class="dip__viz--b">
+            <svg viewBox="0 0 200 70" preserveAspectRatio="none">
+              <path class="viz__flat" d="M2 20 L60 22 L100 18 L140 23 L198 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M2 62 L198 62" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>
+            </svg>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="changed__kicker" data-fade>
+      <em>The person closest to a problem is now the cheapest person to solve it.</em>
+      Domain expertise is the anchor. Everything else is an add-on, and the add-ons have become small.
+    </p>
+  </div>
+</section>
+
+<!-- ============ INSIGHT ============ -->
+<section class="section insight" id="insight">
+  <div class="wrap grid">
+    <div class="insight__list">
+      <p class="eyebrow"><span class="num">03</span>The insight</p>
+      <h2 class="h2" data-split>The people who know the problems are not the people building the tools</h2>
+      <ol class="persona">
+        <li data-fade><span class="persona__n">1</span><p><strong>A registry officer</strong> watches a citizen request pass through six desks and knows exactly where it stalls.</p></li>
+        <li data-fade><span class="persona__n">2</span><p><strong>A laboratory scientist</strong> sees sample readings drift between technicians and between shifts.</p></li>
+        <li data-fade><span class="persona__n">3</span><p><strong>A relationship manager</strong> rebuilds the same credit memo every week and knows it is inconsistent.</p></li>
+      </ol>
+    </div>
+    <aside class="insight__card" data-fade>
+      <p>They have the problem, the context and the judgement.</p>
+      <p>What they have never had is a way to build without a software team.</p>
+      <p class="insight__punch">The person closest to a problem is now the cheapest person to solve it.</p>
+      <div class="insight__glow" aria-hidden="true"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="section proof" id="proof">
+  <div class="wrap">
+    <header class="sechead sechead--split">
+      <div>
+        <p class="eyebrow"><span class="num">04</span>Proof · built, not prompted</p>
+        <h2 class="h2" data-split>What we have already proven</h2>
+      </div>
+      <p class="sechead__aside" data-fade>
+        Built, Not Prompted is our first course and the proof behind Domain Expert Builders.
+        One graduation rule across the academy: a real product on a real URL.
+      </p>
+    </header>
+
+    <div class="stats">
+      <div class="stat" data-fade><span class="stat__n" data-count="32">0</span><span class="stat__l">Students, Cohort 01</span></div>
+      <div class="stat" data-fade><span class="stat__n" data-count="6">0</span><span class="stat__l">Countries, 3 continents</span></div>
+      <div class="stat" data-fade><span class="stat__n" data-count="12">0</span><span class="stat__l">Live products in 4 weeks</span></div>
+      <div class="stat" data-fade><span class="stat__n" data-count="24" data-suffix="+">0</span><span class="stat__l">Live products across KayKav</span></div>
+    </div>
+
+    <p class="proof__note" data-fade>
+      <b>Cohort 01 (2026):</b> 32 students · 6 countries · 3 continents · 12 live products in 4 weeks.
+      <b>Cohort 02 (2026):</b> 8 students · 7 live products in 4 weeks.
+      <b>Across KayKav Academy:</b> 100+ students · 40 builders in the cohort track · 24+ live products.
+    </p>
+
+    <!-- product list w/ hover preview -->
+    <div class="plist" id="plist">
+      <p class="eyebrow eyebrow--rule">Selected products · every one is on a real URL today</p>
+
+      <a class="prow" href="https://tryprecisioncare.com" target="_blank" rel="noopener" data-preview="p1" data-cursor="Visit">
+        <span class="prow__name">Precision<em>tryprecisioncare.com</em></span>
+        <span class="prow__what">Care coordination product</span>
+        <span class="prow__why">A health workflow tool shipped by a non-engineer in four weeks</span>
+        <span class="prow__go"><i class="btn__arrow"></i></span>
+      </a>
+
+      <a class="prow" href="https://draftdesk.online" target="_blank" rel="noopener" data-preview="p2" data-cursor="Visit">
+        <span class="prow__name">DraftDesk<em>draftdesk.online</em></span>
+        <span class="prow__what">Drafting and document workspace</span>
+        <span class="prow__why">The document-heavy pattern most public and legal work runs on</span>
+        <span class="prow__go"><i class="btn__arrow"></i></span>
+      </a>
+
+      <div class="prow" data-preview="p3">
+        <span class="prow__name">RentTrack<em>tenant portal</em></span>
+        <span class="prow__what">Multi-unit property management</span>
+        <span class="prow__why">Records, statuses and messaging between parties: the shape of most administrative systems</span>
+        <span class="prow__go"><i class="btn__dot"></i></span>
+      </div>
+
+      <div class="prow" data-preview="p4">
+        <span class="prow__name">DDT<em>Don't Destroy the Structure</em></span>
+        <span class="prow__what">End-to-end management of non-destructive testing</span>
+        <span class="prow__why">Built by a lab's own product designer; his employer subscribed for a year</span>
+        <span class="prow__go"><i class="btn__dot"></i></span>
+      </div>
+
+      <div class="prow" data-preview="p5">
+        <span class="prow__name">PrimeLife<em>habit · nutrition · movement</em></span>
+        <span class="prow__what">Health guidance for Nigerian women aged 45 to 65</span>
+        <span class="prow__why">A health tool designed for a specific, underserved population</span>
+        <span class="prow__go"><i class="btn__dot"></i></span>
+      </div>
+
+      <div class="preview" id="preview" aria-hidden="true">
+        <div class="preview__inner">
+          <div class="pv" data-pv="p1">
+            <svg viewBox="0 0 480 320" class="mock"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B5599"/><stop offset="1" stop-color="#123059"/></linearGradient></defs>
+              <rect width="480" height="320" fill="url(#g1)"/><rect x="0" y="0" width="480" height="34" fill="#0E2340" opacity=".55"/>
+              <circle cx="18" cy="17" r="3.4" fill="#C09150"/><rect x="30" y="14" width="52" height="6" rx="3" fill="#fff" opacity=".55"/>
+              <rect x="20" y="52" width="140" height="248" rx="8" fill="#fff" opacity=".08"/>
+              <rect x="34" y="70" width="88" height="6" rx="3" fill="#fff" opacity=".45"/><rect x="34" y="88" width="112" height="6" rx="3" fill="#fff" opacity=".22"/><rect x="34" y="106" width="96" height="6" rx="3" fill="#fff" opacity=".22"/><rect x="34" y="124" width="104" height="6" rx="3" fill="#C09150" opacity=".8"/>
+              <rect x="176" y="52" width="284" height="86" rx="8" fill="#fff" opacity=".12"/>
+              <rect x="192" y="70" width="120" height="8" rx="4" fill="#fff" opacity=".6"/><rect x="192" y="92" width="240" height="6" rx="3" fill="#fff" opacity=".25"/><rect x="192" y="110" width="180" height="6" rx="3" fill="#fff" opacity=".25"/>
+              <rect x="176" y="152" width="136" height="148" rx="8" fill="#fff" opacity=".08"/><rect x="324" y="152" width="136" height="148" rx="8" fill="#C09150" opacity=".22"/>
+              <path d="M192 260 L216 232 L240 248 L264 208 L288 224" fill="none" stroke="#E0B87A" stroke-width="2.4"/>
+              <circle cx="392" cy="214" r="34" fill="none" stroke="#E0B87A" stroke-width="3" stroke-dasharray="160 214" transform="rotate(-90 392 214)"/>
+            </svg>
+          </div>
+          <div class="pv" data-pv="p2">
+            <svg viewBox="0 0 480 320" class="mock"><rect width="480" height="320" fill="#F4E8D7"/>
+              <rect x="0" y="0" width="480" height="34" fill="#0E2340"/><rect x="30" y="14" width="60" height="6" rx="3" fill="#fff" opacity=".5"/><circle cx="18" cy="17" r="3.4" fill="#C09150"/>
+              <rect x="20" y="52" width="110" height="248" rx="6" fill="#0E2340" opacity=".06"/>
+              <rect x="32" y="66" width="70" height="5" rx="2.5" fill="#0E2340" opacity=".35"/><rect x="32" y="82" width="84" height="5" rx="2.5" fill="#0E2340" opacity=".18"/><rect x="32" y="98" width="60" height="5" rx="2.5" fill="#0E2340" opacity=".18"/><rect x="32" y="114" width="78" height="5" rx="2.5" fill="#2B5599" opacity=".7"/>
+              <rect x="146" y="52" width="314" height="248" rx="6" fill="#fff"/>
+              <rect x="170" y="80" width="180" height="10" rx="5" fill="#0E2340" opacity=".8"/>
+              <rect x="170" y="112" width="266" height="5" rx="2.5" fill="#0E2340" opacity=".2"/><rect x="170" y="128" width="252" height="5" rx="2.5" fill="#0E2340" opacity=".2"/><rect x="170" y="144" width="266" height="5" rx="2.5" fill="#0E2340" opacity=".2"/><rect x="170" y="160" width="196" height="5" rx="2.5" fill="#0E2340" opacity=".2"/>
+              <rect x="170" y="188" width="266" height="5" rx="2.5" fill="#C09150" opacity=".45"/><rect x="170" y="204" width="230" height="5" rx="2.5" fill="#0E2340" opacity=".2"/><rect x="170" y="220" width="250" height="5" rx="2.5" fill="#0E2340" opacity=".2"/>
+              <rect x="170" y="252" width="86" height="24" rx="12" fill="#2B5599"/>
+            </svg>
+          </div>
+          <div class="pv" data-pv="p3">
+            <svg viewBox="0 0 480 320" class="mock"><rect width="480" height="320" fill="#0E2340"/>
+              <rect x="24" y="24" width="432" height="52" rx="6" fill="#fff" opacity=".08"/>
+              <rect x="40" y="42" width="90" height="8" rx="4" fill="#fff" opacity=".5"/><rect x="40" y="58" width="140" height="5" rx="2.5" fill="#fff" opacity=".2"/>
+              <rect x="380" y="40" width="60" height="20" rx="10" fill="#C09150" opacity=".85"/>
+              <g fill="#fff">
+                <rect x="24" y="92" width="432" height="44" rx="6" opacity=".05"/><rect x="24" y="148" width="432" height="44" rx="6" opacity=".05"/><rect x="24" y="204" width="432" height="44" rx="6" opacity=".05"/><rect x="24" y="260" width="432" height="44" rx="6" opacity=".05"/>
+              </g>
+              <g opacity=".55" fill="#fff">
+                <rect x="44" y="110" width="96" height="6" rx="3"/><rect x="44" y="166" width="120" height="6" rx="3"/><rect x="44" y="222" width="84" height="6" rx="3"/><rect x="44" y="278" width="108" height="6" rx="3"/>
+              </g>
+              <g><rect x="360" y="106" width="70" height="16" rx="8" fill="#4ADE80" opacity=".22"/><rect x="360" y="162" width="70" height="16" rx="8" fill="#C09150" opacity=".35"/><rect x="360" y="218" width="70" height="16" rx="8" fill="#4ADE80" opacity=".22"/><rect x="360" y="274" width="70" height="16" rx="8" fill="#fff" opacity=".14"/></g>
+            </svg>
+          </div>
+          <div class="pv" data-pv="p4">
+            <svg viewBox="0 0 480 320" class="mock"><rect width="480" height="320" fill="#123059"/>
+              <rect x="0" y="0" width="150" height="320" fill="#0E2340"/>
+              <rect x="20" y="28" width="60" height="7" rx="3.5" fill="#C09150"/>
+              <g fill="#fff" opacity=".28"><rect x="20" y="64" width="90" height="5" rx="2.5"/><rect x="20" y="84" width="74" height="5" rx="2.5"/><rect x="20" y="104" width="98" height="5" rx="2.5"/><rect x="20" y="124" width="66" height="5" rx="2.5"/></g>
+              <rect x="20" y="156" width="110" height="1" fill="#fff" opacity=".14"/>
+              <rect x="174" y="28" width="130" height="9" rx="4.5" fill="#fff" opacity=".75"/>
+              <rect x="174" y="60" width="136" height="96" rx="6" fill="#fff" opacity=".08"/><rect x="322" y="60" width="136" height="96" rx="6" fill="#C09150" opacity=".2"/>
+              <text x="196" y="118" font-family="Georgia,serif" font-size="34" fill="#fff" opacity=".8">98%</text>
+              <text x="344" y="118" font-family="Georgia,serif" font-size="34" fill="#E0B87A">A+</text>
+              <rect x="174" y="176" width="284" height="120" rx="6" fill="#fff" opacity=".06"/>
+              <g fill="#E0B87A" opacity=".8"><rect x="194" y="256" width="14" height="24" rx="2"/><rect x="218" y="240" width="14" height="40" rx="2"/><rect x="242" y="220" width="14" height="60" rx="2"/><rect x="266" y="248" width="14" height="32" rx="2"/><rect x="290" y="206" width="14" height="74" rx="2"/><rect x="314" y="232" width="14" height="48" rx="2"/><rect x="338" y="216" width="14" height="64" rx="2"/><rect x="362" y="252" width="14" height="28" rx="2"/><rect x="386" y="226" width="14" height="54" rx="2"/></g>
+            </svg>
+          </div>
+          <div class="pv" data-pv="p5">
+            <svg viewBox="0 0 480 320" class="mock"><rect width="480" height="320" fill="#F4E8D7"/>
+              <rect x="150" y="20" width="180" height="280" rx="22" fill="#0E2340"/>
+              <rect x="162" y="32" width="156" height="256" rx="14" fill="#FBF9F6"/>
+              <rect x="200" y="26" width="80" height="6" rx="3" fill="#0E2340"/>
+              <rect x="178" y="54" width="70" height="8" rx="4" fill="#0E2340" opacity=".8"/>
+              <rect x="178" y="76" width="124" height="52" rx="8" fill="#2B5599" opacity=".12"/>
+              <circle cx="204" cy="102" r="16" fill="none" stroke="#2B5599" stroke-width="3" stroke-dasharray="70 30" transform="rotate(-90 204 102)"/>
+              <rect x="230" y="92" width="60" height="5" rx="2.5" fill="#0E2340" opacity=".4"/><rect x="230" y="106" width="44" height="5" rx="2.5" fill="#0E2340" opacity=".22"/>
+              <rect x="178" y="142" width="124" height="34" rx="8" fill="#C09150" opacity=".22"/><rect x="178" y="184" width="124" height="34" rx="8" fill="#0E2340" opacity=".07"/><rect x="178" y="226" width="124" height="34" rx="8" fill="#0E2340" opacity=".07"/>
+              <g fill="#0E2340" opacity=".4"><rect x="192" y="156" width="48" height="5" rx="2.5"/><rect x="192" y="198" width="60" height="5" rx="2.5"/><rect x="192" y="240" width="40" height="5" rx="2.5"/></g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="section method" id="method">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow"><span class="num">05</span>The method</p>
+      <h2 class="h2 h2--wide" data-split>The method is simple to state and hard to fake</h2>
+    </header>
+    <div class="pillars">
+      <article class="pillar" data-pillar>
+        <span class="pillar__n">01</span>
+        <h3>Architecture before code</h3>
+        <p>Students define what they are building, for whom, and how it fits together before any code
+           exists. This is where most AI-built software fails, and where the programme starts.</p>
+      </article>
+      <article class="pillar" data-pillar>
+        <span class="pillar__n">02</span>
+        <h3>The student directs, AI executes</h3>
+        <p>AI coding agents are the build layer. The student makes every product, scope and quality
+           decision. The tools do the typing.</p>
+      </article>
+      <article class="pillar" data-pillar>
+        <span class="pillar__n">03</span>
+        <h3>Ship, then iterate</h3>
+        <p>A live URL is a graduation requirement, not a stretch goal. The product is the credential.
+           Students who ship get interviews, customers and confidence.</p>
+      </article>
+    </div>
+    <p class="method__self" data-fade>
+      <span class="eyebrow eyebrow--inline">We use the method on ourselves</span>
+      TailorTab, an offline-first tool for Nigerian tailors, was designed in Claude and executed in
+      Antigravity with the same Architecture Before Code process we teach. It is deployed. Kav Campus
+      and our internal email engine are being built the same way.
+      <b>We do not teach a method we do not run.</b>
+    </p>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY ============ -->
+<section class="section case" id="case">
+  <div class="wrap">
+    <div class="case__panel" data-fade>
+      <div class="case__body">
+        <p class="eyebrow eyebrow--light"><span class="num">06</span>The build that started this course</p>
+        <h2 class="h3">DDT · Don't Destroy the Structure</h2>
+        <p>A product designer at a non-destructive testing lab used to draw flows, hand them to
+           developers, and leave his own ideas unfinished. In Built, Not Prompted he built DDT around
+           his own workplace: audit-readiness scoring, a machine log tying every serial number to
+           every site, staff productivity exportable as an audit file, invoicing, a client status link.</p>
+        <p><b>His managing director approved it. The company subscribed for a year and referred similar firms.</b></p>
+      </div>
+      <figure class="case__quote">
+        <blockquote>“The course gave me a good big sword for the problems I see.”</blockquote>
+        <figcaption>Domain Expert Builders is this story, designed to repeat across a sector.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMME ============ -->
+<section class="section programme" id="programme">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow"><span class="num">07</span>The programme</p>
+      <h2 class="h2 h2--wide" data-split>Domain Expert Builders: one anchor, five add-ons</h2>
+    </header>
+
+    <div class="anchor" data-fade>
+      <span class="anchor__tag">The anchor</span>
+      <p>Years inside a domain. It cannot be bought, and it is what every participant walks in with.</p>
+    </div>
+
+    <div class="addons">
+      <article class="addon" data-fade><span class="addon__n">1</span><h3>Frame</h3><p>Turn “this is annoying” into a bounded, measurable system with an accountable owner.</p></article>
+      <article class="addon" data-fade><span class="addon__n">2</span><h3>Data</h3><p>Know where the data lives, what shape it is in, and what you are allowed to touch.</p></article>
+      <article class="addon" data-fade><span class="addon__n">3</span><h3>Architecture</h3><p>Decide whether the answer is a form, a workflow, a dashboard or an app.</p></article>
+      <article class="addon" data-fade><span class="addon__n">4</span><h3>Direct</h3><p>Write specs an agent can build from, then evaluate whether it did what you meant.</p></article>
+      <article class="addon" data-fade><span class="addon__n">5</span><h3>Hold</h3><p>Deploy, secure, run a feedback loop, and hand the tool to someone who keeps it alive.</p></article>
+    </div>
+    <p class="addons__note" data-fade>None of the five is “learn to code”.</p>
+  </div>
+</section>
+
+<!-- ============ SIX WEEKS (horizontal) ============ -->
+<section class="track" id="weeks">
+  <div class="track__head wrap">
+    <p class="eyebrow"><span class="num">08</span>How it runs</p>
+    <h2 class="h2 h2--wide" data-split>Six weeks, from a problem you live with to a tool in use</h2>
+  </div>
+  <div class="track__viewport" id="trackViewport">
+    <div class="track__rail" id="trackRail">
+      <article class="wk"><span class="wk__tag">Week 0</span><h3>Domain Audit</h3><p>Inventory ten problems from the working week. Rank by pain and by data reach. Name who is accountable.</p><span class="wk__i">00</span></article>
+      <article class="wk"><span class="wk__tag">Weeks 1–2</span><h3>Frame &amp; architect</h3><p>The chosen problem becomes a specification, a data model and a permission design before any code.</p><span class="wk__i">01</span></article>
+      <article class="wk"><span class="wk__tag">Week 3</span><h3>Build</h3><p>Directed by the participant, executed by AI agents, reviewed one step at a time.</p><span class="wk__i">02</span></article>
+      <article class="wk wk--gold"><span class="wk__tag">Week 4</span><h3>Evaluate &amp; sweep</h3><p>Five real colleagues use the tool. What failed and what was unnecessary is removed.</p><span class="wk__i">03</span></article>
+      <article class="wk wk--gold"><span class="wk__tag">Week 5</span><h3>Ship &amp; hand over</h3><p>Live deployment, security review, Guardrail sign-off, Handover Pack, named owner.</p><span class="wk__i">04</span></article>
+      <article class="wk wk--gold"><span class="wk__tag">Week 6</span><h3>Demo Day</h3><p>Institutional guests invited. The honest decision to grow the tool or retire it.</p><span class="wk__i">05</span></article>
+      <article class="wk wk--end"><span class="wk__tag">Then</span><h3>90-day follow-up</h3><p>Still live? Named owner? Used in the past 30 days? The number that matters most.</p><span class="wk__i">06</span></article>
+    </div>
+  </div>
+  <div class="track__progress"><span id="trackBar"></span></div>
+  <p class="track__hint wrap" aria-hidden="true"><span class="only-sm">Swipe to move through the six weeks</span><span class="only-lg">Keep scrolling to move through the six weeks</span></p>
+</section>
+
+<!-- ============ WORKED EXAMPLES ============ -->
+<section class="section examples" id="examples">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow"><span class="num">09</span>Three worked examples</p>
+      <h2 class="h2 h2--wide" data-split>What a participant actually builds</h2>
+    </header>
+    <div class="excards">
+      <article class="ex" data-fade>
+        <p class="ex__sector">Public sector</p>
+        <h3>Request tracker</h3>
+        <p class="ex__body">A citizen request passes through six desks and nobody knows where it sits. The participant builds an intake form, status states and an automated flag when a service standard is breached, on top of the existing spreadsheet so nobody has to migrate.</p>
+        <p class="guard"><span>Guardrail</span> Approved infrastructure. Automates no decision a named officer must make.</p>
+      </article>
+      <article class="ex" data-fade>
+        <p class="ex__sector">Health and laboratory</p>
+        <h3>Reading consistency</h3>
+        <p class="ex__body">Prenatal sample readings vary by technician and shift. The participant builds a reading protocol against a reference set, flags outliers between technicians and charts drift by week.</p>
+        <p class="guard"><span>Guardrail</span> Quality assurance only. No patient-identifiable data. The quality manager signs off.</p>
+      </article>
+      <article class="ex" data-fade>
+        <p class="ex__sector">Finance and banking</p>
+        <h3>Memo assembler</h3>
+        <p class="ex__body">Relationship managers rebuild the same credit memo from scratch. The participant builds an assembler drawing from approved sources, drafting to the house template, routing for sign-off with every edit logged.</p>
+        <p class="guard"><span>Guardrail</span> Human sign-off cannot be skipped. No live customer data.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ READINESS + SAFEGUARDS ============ -->
+<section class="section safe" id="safeguards">
+  <div class="wrap">
+    <header class="sechead sechead--split">
+      <div>
+        <p class="eyebrow"><span class="num">10</span>Readiness &amp; safeguards</p>
+        <h2 class="h2" data-split>Building inside government, health and finance carries obligations</h2>
+      </div>
+      <p class="sechead__aside" data-fade>
+        Serious funders ask the same five questions of anything they back. These rules are structural,
+        taught in the programme and checked at graduation — in a form that can be checked rather
+        than believed.
+      </p>
+    </header>
+
+    <div class="acc" id="acc">
+      <details class="acc__item" open>
+        <summary><span class="acc__n">01</span><span class="acc__t">Policy, law and regulation</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>No patient, citizen or customer-identifiable data in any student build; synthetic or anonymised only. Data classification is taught in Week 2 and checked at sign-off. Institutional cohorts run inside the partner's data-protection and procurement rules. Tools record and flag; they do not make regulated decisions.</p></div>
+      </details>
+      <details class="acc__item">
+        <summary><span class="acc__n">02</span><span class="acc__t">Institutional oversight</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>An accountable owner inside the participant's organisation is named before Week 1 and signs off before graduation. Institutional cohorts have an internal sponsor. Every tool has a named maintenance owner and a Handover Pack.</p></div>
+      </details>
+      <details class="acc__item">
+        <summary><span class="acc__n">03</span><span class="acc__t">Technology architecture</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>One documented method, Architecture Before Code, with a specification, data model and permission design before any build. A two-agent workflow: Claude for planning and architecture, Antigravity for execution. Every product in one shared build environment. Standard hosting, standard security review before deploy.</p></div>
+      </details>
+      <details class="acc__item">
+        <summary><span class="acc__n">04</span><span class="acc__t">Leadership and capacity</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>Two named co-founders who design and teach the programmes. A technical co-instructor for engineering standards and security. Guest tutors from product practice. A domain mentor per track. A cohort manager for roster, progress and reporting.</p></div>
+      </details>
+      <details class="acc__item">
+        <summary><span class="acc__n">05</span><span class="acc__t">Shared practices</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>A written, reusable method already used by graduates on their own work: the greenfield opener, the 7-part build prompt, ProjectPort, scope files, the Editing Pass, the Evaluation Pass, the Handover Pack. Recaps and handouts ship every session. What we learn is published at principle level.</p></div>
+      </details>
+      <details class="acc__item">
+        <summary><span class="acc__n">06</span><span class="acc__t">Handover, or it is not shipped</span><i class="acc__x"></i></summary>
+        <div class="acc__c"><p>A tool without a maintenance owner and a Handover Pack is not shipped; it is abandoned. Both are graduation requirements. Sponsor reporting uses unique landing URLs and cohort-level data, and participant names are shared only with explicit consent.</p></div>
+      </details>
+    </div>
+
+    <div class="lines" data-fade>
+      <p class="eyebrow eyebrow--rule">The lines we hold, whoever is paying</p>
+      <ul class="lines__list">
+        <li><b>No certificate-first programmes.</b> A live URL stays the graduation requirement.</li>
+        <li><b>No enrolments as outcomes.</b> We report deployed tools, users served and 90-day survival.</li>
+        <li><b>No identifiable data, no regulated decisions</b> in any student build.</li>
+        <li><b>No volume before access.</b> Every builder has a mentor, an accountable owner and a working environment.</li>
+        <li><b>No curriculum for money.</b> We take a partner's problems, tracks and mentors — not direction on the method.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="section impact" id="impact">
+  <div class="wrap grid">
+    <div class="impact__lead">
+      <p class="eyebrow"><span class="num">11</span>How impact is made legible</p>
+      <h2 class="h2" data-split>Funders should not have to take our word for it</h2>
+      <p class="body" data-fade>Every student product moves into a shared KayKav build environment, a GitHub organisation, so a partner can see in one place what was built and by whom, when it shipped and where it is live, and ongoing activity after graduation.</p>
+      <p class="body" data-fade>Outcomes are tracked per participant at 30, 90 and 180 days: is the tool still live, how many people use it, and did it lead to a role, a promotion, a customer or a follow-on build.</p>
+    </div>
+    <div class="indics" data-fade>
+      <p class="indics__tag">Proposed indicators for a partner cohort</p>
+      <dl>
+        <div><dt>Seats filled and completed</dt><dd>Enrolled, attended, graduated against the requirements</dd></div>
+        <div><dt>Tools deployed</dt><dd>Live URLs in the shared build environment at Demo Day</dd></div>
+        <div><dt>Tools in use at 90 days</dt><dd>Still live, named owner, used within the past 30 days</dd></div>
+        <div><dt>People served</dt><dd>Colleagues or members of the public whose work passes through a tool</dd></div>
+        <div><dt>Follow-on outcomes</dt><dd>Roles, promotions, second builds, adoption beyond the unit</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="bi" data-fade>
+      <div class="bi__lead">
+        <h3 class="h3">Builder intelligence</h3>
+        <p>A partner cohort produces knowledge nobody else is collecting: how domain professionals
+           actually adopt AI to build. Captured with consent, reported at cohort level. Across cohorts
+           this becomes a standing view of what a sector builds first, where it stalls, and what it
+           costs to get people across the line — a public good for anyone funding digital capacity
+           on the continent.</p>
+      </div>
+      <ul class="bi__list">
+        <li><b>Problem, sector, shape</b><span>Form, workflow, dashboard or app</span></li>
+        <li><b>Data reach</b><span>Where access was the blocker</span></li>
+        <li><b>Stall points</b><span>Which phase, skill or guardrail</span></li>
+        <li><b>Tool and model usage</b><span>The true cost of inclusion, measured</span></li>
+        <li><b>Adoption</b><span>Users, owner, spread at 30, 90 and 180 days</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="section partner" id="partner">
+  <div class="wrap">
+    <header class="sechead">
+      <p class="eyebrow"><span class="num">12</span>Partnership models</p>
+      <h2 class="h2 h2--wide" data-split>Five ways to partner</h2>
+    </header>
+    <div class="pcards">
+      <article class="pc" data-fade><p class="pc__tag">Sponsored seats</p><h3>Fund a block of seats</h3><p>A partner funds seats in an open cohort for its staff or the communities it supports. Named cohort reporting and a view of every product the funding produced.</p><p class="pc__for">Foundations · corporates · associations</p></article>
+      <article class="pc pc--gold" data-fade><p class="pc__tag">Embedded cohort</p><h3>One institution, one cohort</h3><p>A closed cohort for one ministry, agency, hospital network or bank, on its approved infrastructure, with its own domain mentor and an internal sponsor who signs off tools.</p><p class="pc__for">Governments · health systems · banks</p></article>
+      <article class="pc" data-fade><p class="pc__tag">Programme partnership</p><h3>A capstone for initiatives</h3><p>Domain Expert Builders runs as the capstone of a training initiative, national programme or fellowship, so participants finish with a deployed tool.</p><p class="pc__for">Public programmes · fellowships · NGOs</p></article>
+      <article class="pc pc--gold" data-fade><p class="pc__tag">Hybrid hub</p><h3>A partner-hosted space</h3><p>A hub or training room with devices, connectivity and power, where a cohort attends live sessions together and builds on site. Removes the access barriers that exclude people before pricing does.</p><p class="pc__for">Hubs · state agencies · universities</p></article>
+      <article class="pc" data-fade><p class="pc__tag">Tool partnership</p><h3>Access for outcomes</h3><p>AI and developer tool providers supply educational access and credits in exchange for usage and outcome data from people who ship.</p><p class="pc__for">Technology companies</p></article>
+      <article class="pc pc--split" data-fade>
+        <p class="pc__tag">The split</p>
+        <div class="split">
+          <div><h4>Partner provides</h4><ul><li>Funding for seats and tool usage</li><li>An internal sponsor</li><li>A domain mentor, or help finding one</li><li>A data pathway</li><li>Participation at Demo Day</li></ul></div>
+          <div><h4>KayKav provides</h4><ul><li>The full six-week programme</li><li>The method, toolchain and build environment</li><li>Guardrail design for the sector</li><li>Cohort management and named reporting</li><li>30, 90 and 180-day tracking</li></ul></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST ============ -->
+<section class="section cost" id="cost">
+  <div class="wrap grid">
+    <div class="cost__lead">
+      <p class="eyebrow"><span class="num">13</span>What it costs to include people</p>
+      <h2 class="h2" data-split>Tuition is not the real cost</h2>
+      <p class="body" data-fade>Two cohorts have taught us that the largest running cost is AI model and tool usage per participant. Behind that sit laptops, mobile data and stable power, which exclude capable people before pricing does.</p>
+      <p class="body" data-fade>A seat that covers only tuition leaves a civil servant or laboratory scientist unable to complete. A fully inclusive seat has four lines.</p>
+      <p class="cost__lever" data-fade>Tool cost has a known lever: education-tier pricing negotiated at network level, so a sponsor's tool-credit pool goes further each cohort. Seat pricing with volume tiers on request.</p>
+    </div>
+    <div class="seat" data-fade>
+      <div class="seatline"><span class="seatline__k">01</span><b>Tuition</b><span>The programme, mentoring, reporting and the graduation standard</span></div>
+      <div class="seatline seatline--hi"><span class="seatline__k">02</span><b>Tool credits</b><span>AI model and tool usage for six weeks of directed building</span></div>
+      <div class="seatline"><span class="seatline__k">03</span><b>Data stipend</b><span>Where connectivity is the blocker to attending and building</span></div>
+      <div class="seatline"><span class="seatline__k">04</span><b>Device access</b><span>Where no laptop is available to the participant</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROPOSAL ============ -->
+<section class="proposal" id="proposal">
+  <canvas class="proposal__gl" id="gl2" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light" data-fade><span class="dot"></span>The proposal</p>
+    <h2 class="proposal__h" data-split>One pilot cohort</h2>
+    <div class="pstats">
+      <div class="pstat" data-fade><b>20–25</b><span>participants from one institution or one sector</span></div>
+      <div class="pstat" data-fade><b>1</b><span>domain track, chosen with the partner</span></div>
+      <div class="pstat" data-fade><b>6 weeks</b><span>of delivery, then a 90-day follow-up</span></div>
+      <div class="pstat" data-fade><b>Every tool</b><span>built is open to the partner to inspect</span></div>
+    </div>
+    <p class="proposal__body" data-fade>
+      The partner nominates the participants, an internal sponsor and a domain mentor. KayKav
+      delivers the programme, reports at Demo Day and at 90 days, and gives the partner direct
+      access to every tool built.
+    </p>
+    <p class="proposal__punch" data-fade>
+      The pilot answers one question with evidence rather than argument: can the people inside an
+      institution ship the tools it needs? <em>The impact is not a report. It is a URL.</em>
+    </p>
+    <div class="cta" data-fade>
+      <a class="btn btn--gold" href="mailto:hello@kaykav.academy?subject=Domain%20Expert%20Builders%20—%20pilot%20cohort" data-cursor="Write">
+        <span>Start a pilot conversation</span><i class="btn__arrow"></i>
+      </a>
+      <a class="cta__alt" href="#proof" data-cursor="See">See what has shipped</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / FOOTER ============ -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <h2 class="foot__h" data-split>Let us show you a third time, with your people.</h2>
+    <div class="cta cta--foot" data-fade>
+      <a class="btn btn--gold" href="mailto:hello@kaykav.academy?subject=Domain%20Expert%20Builders%20—%20partnership" data-cursor="Write">
+        <span>Open a conversation</span><i class="btn__arrow"></i>
+      </a>
+    </div>
+    <div class="foot__grid">
+      <div class="foot__col">
+        <p class="foot__label">Contact</p>
+        <a class="foot__mail" href="mailto:hello@kaykav.academy" data-cursor="Write">hello@kaykav.academy</a>
+        <a class="foot__site" href="https://kaykav.academy" target="_blank" rel="noopener">kaykav.academy</a>
+      </div>
+      <div class="foot__col">
+        <p class="foot__label">Co-founders</p>
+        <p>Miracle Agada</p>
+        <p>Osamudiamen (Mudia) Imasuen</p>
+        <p class="foot__muted">A division of KayKav Creative Studio Ltd, Kaduna, Nigeria</p>
+      </div>
+      <div class="foot__col">
+        <p class="foot__label">Attached</p>
+        <p>KayKav Academy Partnership Proposal (PDF)</p>
+        <p>Domain Expert Builders Curriculum (PDF)</p>
+        <p>Video pitch, 3:50</p>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>KayKav Academy · Domain Expert Builders · Partner Pitch</span>
+      <span>September 2026</span>
+    </div>
+  </div>
+  <div class="foot__word" aria-hidden="true"><span>KAYKAV</span></div>
+</footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/js/gl.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
