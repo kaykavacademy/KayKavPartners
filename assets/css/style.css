@@ -393,6 +393,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
    ========================================================= */
 .problem{background:var(--paper)}
 .problem__sticky{grid-column:1/span 5;position:sticky;top:clamp(90px,14vh,140px);align-self:start}
+.problem__sticky .h2{font-size:clamp(1.8rem,3.2vw,2.9rem);line-height:1.06;max-width:19ch}
 .problem__stack{grid-column:7/span 6;display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px)}
 .stackcard{
   background:#fff;border:1px solid var(--line);border-radius:var(--r);
@@ -439,8 +440,14 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   color:var(--muted);max-width:74ch
 }
 .changed__kicker em{
-  font-family:var(--serif);font-style:italic;font-size:1.18em;color:var(--ink-2);
-  display:block;margin-bottom:.4em;line-height:1.25
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(1.55rem,3vw,2.4rem);color:var(--ink);
+  display:block;margin-bottom:.7em;line-height:1.14;letter-spacing:-.018em;
+  max-width:22ch;text-wrap:balance
+}
+.changed__kicker em::before{
+  content:"";display:block;width:58px;height:3px;border-radius:2px;
+  background:var(--gold);margin-bottom:clamp(20px,2.2vw,30px)
 }
 
 /* =========================================================
@@ -454,7 +461,12 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   display:flex;flex-direction:column;gap:1.1em
 }
 .insight__card p{font-family:var(--serif);font-size:clamp(1.1rem,1.75vw,1.5rem);line-height:1.3;font-weight:400}
-.insight__punch{color:var(--gold-lt);font-style:italic;padding-top:.3em}
+.insight__card .insight__punch{
+  color:var(--gold-lt);font-style:italic;font-weight:600;
+  font-size:clamp(1.35rem,2.15vw,1.9rem);line-height:1.2;letter-spacing:-.012em;
+  margin-top:.3em;padding-top:clamp(20px,2.2vw,30px);
+  border-top:1px solid rgba(227,188,133,.34);text-wrap:balance
+}
 .insight__glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(224,184,122,.4),transparent 68%);top:-140px;right:-110px;filter:blur(10px)}
 .persona{margin-top:clamp(30px,4vw,52px);display:flex;flex-direction:column}
 .persona li{display:flex;gap:clamp(16px,2vw,28px);padding-block:clamp(18px,2.2vw,28px);border-top:1px solid var(--line);align-items:flex-start}
@@ -517,33 +529,6 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .pv{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
 .pv.is-on{opacity:1}
 .pv .mock{width:100%;height:100%}
-
-/* =========================================================
-   METHOD
-   ========================================================= */
-.method{background:var(--ink-2);color:var(--cream)}
-.method .h2{color:#fff}
-.method .eyebrow{color:var(--gold-lt)}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,26px)}
-.pillar{
-  position:relative;border:1px solid rgba(244,232,215,.16);border-radius:var(--r);
-  padding:clamp(26px,3vw,46px);overflow:hidden;background:rgba(255,255,255,.02);
-  min-height:clamp(300px,30vw,400px);display:flex;flex-direction:column
-}
-.pillar::after{
-  content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(192,145,80,.18),transparent 58%);
-  opacity:0;transition:opacity .6s var(--ease)
-}
-.pillar:hover::after{opacity:1}
-.pillar__n{font-family:var(--serif);font-size:clamp(2rem,3.4vw,3rem);color:var(--gold);font-weight:600;line-height:1;margin-bottom:auto;letter-spacing:-.03em}
-.pillar h3{font-family:var(--serif);font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;color:#fff;margin:2.4rem 0 .9rem;line-height:1.08;letter-spacing:-.02em;position:relative;z-index:1}
-.pillar p{color:rgba(244,232,215,.62);font-size:.98rem;position:relative;z-index:1;line-height:1.65}
-.method__self{
-  margin-top:clamp(40px,5vw,70px);padding-top:clamp(28px,3vw,42px);border-top:1px solid rgba(244,232,215,.16);
-  color:rgba(244,232,215,.62);max-width:82ch;font-size:1rem;line-height:1.75
-}
-.method__self b{color:#fff;font-weight:600}
-.method__self .eyebrow--inline{color:var(--gold-lt)}
 
 /* =========================================================
    CASE
@@ -803,8 +788,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   .insight__card{margin-top:34px}
   .impact__lead,.indics,.cost__lead,.seat{grid-column:1/-1}
   .indics,.seat{margin-top:34px}
-  .pillars,.excards{grid-template-columns:1fr;gap:14px}
-  .pillar{min-height:0}
+  .excards{grid-template-columns:1fr;gap:14px}
   .bi{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .pstats{grid-template-columns:repeat(2,1fr)}

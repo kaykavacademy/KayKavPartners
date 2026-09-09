@@ -16,3 +16,7 @@ package-lock.json
 # video master — 1080p60, way past GitHub's 100MB file limit.
 # The web encode (assets/video/kaykav-deb-story.mp4) is what ships.
 assets/video/Kaykav DEB Story.mp4
+.gstack/
+
+# poster master — the compressed pitch-poster.jpg is what ships.
+assets/img/pitch-poster.png

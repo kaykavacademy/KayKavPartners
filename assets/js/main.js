@@ -211,16 +211,6 @@
       });
     }
 
-    /* pillars */
-    var pillars = $$('[data-pillar]');
-    if (pillars.length) {
-      gsap.set(pillars, { opacity: 0, y: 48 });
-      ScrollTrigger.batch(pillars, {
-        start: 'top 88%', once: true,
-        onEnter: function (b) { gsap.to(b, { opacity: 1, y: 0, duration: 1, stagger: .12, ease: 'expo.out' }); }
-      });
-    }
-
     /* "collapsed": bars fall away. "unchanged": the line just holds. */
     var bars = $$('.dip__viz--a span');
     var COST = [100, 88, 71, 52, 36, 24, 15, 9, 6, 4];
